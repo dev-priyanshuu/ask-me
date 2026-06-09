@@ -1,0 +1,85 @@
+{
+  "description": "Hand-written Q&A pairs for evaluating retrieval hit-rate, citation correctness, and refusal behaviour. expected_doc_ids reference the hardcoded anchor/contradiction docs in the corpus so ground truth is stable.",
+  "top_k": 8,
+  "items": [
+    {
+      "id": "q-launch-date",
+      "question": "When did Acme launch the Rocket Skates and at what price?",
+      "expected_doc_ids": ["acme-anchor-launch"]
+    },
+    {
+      "id": "q-ceo",
+      "question": "Who is the CEO of Acme Co.?",
+      "expected_doc_ids": ["acme-anchor-ceo"]
+    },
+    {
+      "id": "q-prime-price",
+      "question": "How much does the Acme Prime subscription cost per month?",
+      "expected_doc_ids": ["acme-anchor-prime-price"]
+    },
+    {
+      "id": "q-sustainability",
+      "question": "What is Acme's sustainability pledge for packaging?",
+      "expected_doc_ids": ["acme-anchor-sustainability"]
+    },
+    {
+      "id": "q-support-hours",
+      "question": "What are Acme Co. customer support hours?",
+      "expected_doc_ids": ["acme-anchor-support"]
+    },
+    {
+      "id": "q-battery-contradiction",
+      "question": "How long does the Rocket Skates battery last on a charge?",
+      "expected_doc_ids": ["acme-contra-battery-20h", "acme-contra-battery-3h"],
+      "note": "Sources contradict (20h vs ~3h); a good answer surfaces both."
+    },
+    {
+      "id": "q-recall-contradiction",
+      "question": "Did Acme issue a recall for the Rocket Skates?",
+      "expected_doc_ids": ["acme-contra-recall-yes", "acme-contra-recall-no"],
+      "note": "Contradiction: one source says recall issued, another says Acme denies it."
+    },
+    {
+      "id": "q-price-change-contradiction",
+      "question": "Did the price of Acme Prime change recently?",
+      "expected_doc_ids": ["acme-contra-price-up", "acme-contra-price-same"],
+      "note": "Contradiction: doubled vs unchanged."
+    },
+    {
+      "id": "q-overheating",
+      "question": "Why are some Rocket Skates reported to be overheating?",
+      "expected_doc_ids": ["acme-contra-recall-yes"]
+    },
+    {
+      "id": "q-negative-news-filter",
+      "question": "What negative news has been reported about the Rocket Skates?",
+      "filters": {"sources": ["news"], "sentiments": ["negative"]},
+      "expected_doc_ids": ["acme-contra-recall-yes"],
+      "note": "Filter must constrain to negative news."
+    },
+    {
+      "id": "q-carbon-neutral",
+      "question": "Does Acme offer carbon-neutral shipping?",
+      "expected_doc_ids": ["acme-anchor-sustainability"]
+    },
+    {
+      "id": "q-warranty-prime",
+      "question": "Do Acme Prime members get any warranty or shipping perks?",
+      "expected_doc_ids": ["acme-anchor-prime-price", "acme-anchor-support"]
+    },
+    {
+      "id": "q-refuse-stock-price",
+      "question": "What is Acme Co.'s stock price today?",
+      "expected_doc_ids": [],
+      "expects_refusal": true,
+      "note": "Out of corpus — should refuse."
+    },
+    {
+      "id": "q-refuse-electric-cars",
+      "question": "Does Acme manufacture electric cars?",
+      "expected_doc_ids": [],
+      "expects_refusal": true,
+      "note": "Out of corpus — should refuse."
+    }
+  ]
+}

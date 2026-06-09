@@ -1,0 +1,19 @@
+# --- Core RAG stack ---
+langchain>=0.3,<0.4
+langchain-openai>=0.2,<0.4
+langchain-weaviate>=0.0.3
+langchain-text-splitters>=0.3,<0.4
+weaviate-client>=4.9,<5
+
+# --- API + UI ---
+fastapi>=0.115
+uvicorn[standard]>=0.30
+streamlit>=1.38
+
+# --- Misc ---
+pydantic>=2.7
+pydantic-settings>=2.4
+python-dotenv>=1.0
+requests>=2.32
+tqdm>=4.66
+tenacity>=8.3

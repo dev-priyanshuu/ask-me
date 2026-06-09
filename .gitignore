@@ -1,0 +1,26 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Weaviate persistent volume (created by docker-compose)
+weaviate_data/
+
+# Ingest state (regenerated on ingest)
+data/.ingest_manifest.json
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Local Claude Code tooling config
+.claude/
+
+PRODUCT_DEEP_DIVE.md
